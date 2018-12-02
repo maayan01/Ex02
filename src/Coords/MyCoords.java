@@ -79,7 +79,7 @@ public class MyCoords implements coords_converter
 		double azimuth ,elevation ,dist;
 		double x1,x0;
 		double delta_y ,delta_z ;
-		//~~~~~~~~~~~~~אזימוט~~~~~~~~~~~~~~
+		//~~~~~~~~~~~~~azimuth~~~~~~~~~~~~~~
 		x0 = Math.toRadians(gps0.x());
 		x1 = Math.toRadians(gps1.x());
 
@@ -90,11 +90,11 @@ public class MyCoords implements coords_converter
 
 		azimuth= (Math.toDegrees(Math.atan2(arg1, arg2))+360)%360;
 		result[0] = azimuth;
-		//~~~~~~~~~~~~קו גובה~~~~~~~~~~~~~~
+		//~~~~~~~~~~~~elevation~~~~~~~~~~~~~~
 		delta_z = gps1.z() - gps0.z();
 		elevation = Math.toDegrees(Math.asin(delta_z/distance3d(gps0, gps1)));
 		result[1] = elevation;
-		//~~~~~~~~~~~~~מרחק~~~~~~~~~~~~~~~~
+		//~~~~~~~~~~~distance~~~~~~~~~~~~~~~
 		dist = distance3d(gps0, gps1);
 		result[2]= dist;
 

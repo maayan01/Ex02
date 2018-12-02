@@ -1,12 +1,8 @@
 package Coords;
-
 import Geom.Point3D;
-
 public class MyCoords implements coords_converter
 {
-
 	private final int  R_earth = 6371*1000;
-
 	//-----------------------------------------------------------------------------------
 	/** computes a new point which is the gps point transformed by a 3D vector (in meters)*/
 	public Point3D add(Point3D gps, Point3D local_vector_in_meter) 
@@ -127,5 +123,4 @@ public class MyCoords implements coords_converter
 		}
 		return true;
 	}
-	//----------------------------
 }

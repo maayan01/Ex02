@@ -24,9 +24,11 @@ Gis_element:
 * meta data - Information about the coordinates
 
 My_Gis_layer:
+
 *A collection of locations on map (many Gis_elemnt) that create a path(road).
 
 My_Gis_project:
+
 *A collection of paths (roads).
 
 

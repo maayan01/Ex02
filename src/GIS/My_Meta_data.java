@@ -84,23 +84,6 @@ public class My_Meta_data  implements Meta_data
 	{
 		return rssi;
 	}
-	//-----------------------Set's methods------------------------------
-/*	public void setUTC(long UTC) 
-	{
-		this.UTC = UTC;
-	}
-	public void setColor(String p_color) 
-	{
-		this.p_color=p_color;
-	}
-	public void setName(String name_SSID )
-	{
-		this.name_SSID =name_SSID;
-	}
-	public void setRssi(double rssi)
-	{
-		this.rssi = rssi;
-	}*/
 	//------------------toString---------------------------
 	/** return a String representing this data */
 	public String toString()

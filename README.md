@@ -13,7 +13,7 @@ this program also have basic coordinate system converter:
 * check if GPS point isValid.
 
 data structure:
-![](pic/ex02.jpg)
+![](pic/ex2.jpg)
 
 data structure:
 point3D(x,y,z) => lat,lon,alt

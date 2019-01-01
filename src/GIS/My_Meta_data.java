@@ -4,9 +4,13 @@
 
 package GIS;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
+
 import Geom.Point3D;
 
 public class My_Meta_data  implements Meta_data
@@ -16,12 +20,14 @@ public class My_Meta_data  implements Meta_data
 	private	double rssi; 
 	private long UTC;//time
 	private String p_color;
+	private String date;
 
 	//------------------constructor---------------------------
 	public My_Meta_data(String[] userData )
 	{
 		name_SSID = userData[1];
 		UTC = DateToUTC(userData[3]);
+		date = userData[3];
 		rssi = Double.parseDouble(userData[5]);
 		p_color = ChooseColor(userData ,rssi);
 	}
@@ -35,31 +41,33 @@ public class My_Meta_data  implements Meta_data
 	}
 	//---------------------Help methods-----------------------
 	/** convert from Date form to UTC*/
-	private long DateToUTC(String myDate)
+	private long DateToUTC(String dateStr)
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		long millis;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date= new Date();
 		try 
 		{
-			date = sdf.parse(myDate);
+			date = sdf.parse(dateStr);
 		} 
 		catch (ParseException e) 
 		{
 			e.printStackTrace();
 		}
-		long millis = date.getTime();
+		millis = date.getTime();
 		return millis;
 	}
+	//--------------------------------------------------------------
 	/** choose the color of the point according to RSSI value*/
 	private String ChooseColor (String[] userData ,double rssi)
 	{
 		if(rssi < -90)
 		{
-			return "Green";
+			return "#green";
 		}
 		else
 		{
-			return "Red";
+			return "#red";
 		}
 	}
 	//-----------------------------------------------------
@@ -83,6 +91,10 @@ public class My_Meta_data  implements Meta_data
 	public double getRssi()
 	{
 		return rssi;
+	}
+	public String getDate()
+	{
+		return this.date;
 	}
 	//------------------toString---------------------------
 	/** return a String representing this data */
